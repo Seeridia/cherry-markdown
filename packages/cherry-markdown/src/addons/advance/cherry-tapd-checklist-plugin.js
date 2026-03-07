@@ -19,6 +19,7 @@
  * limitations under the License.
  */
 import ParagraphBase from '@/core/ParagraphBase';
+import { getLucideIconHtml } from '@/utils/lucideIcons';
 /**
  * [TAPD](https://tapd.cn)的检查项语法
  * 通用的检查项语法为：
@@ -41,9 +42,7 @@ export default class TapdCheckListPlugin extends ParagraphBase {
   }
   afterMakeHtml(html) {
     return html.replace(/\[[\s|x]\]/g, (item) =>
-      item.indexOf('x') > -1
-        ? ' <span class="ch-icon ch-icon-check"></span> '
-        : ' <span class="ch-icon ch-icon-square"></span> ',
+      item.indexOf('x') > -1 ? ` ${getLucideIconHtml('check')} ` : ` ${getLucideIconHtml('square')} `,
     );
   }
 

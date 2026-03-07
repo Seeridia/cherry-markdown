@@ -16,6 +16,7 @@
 // import juice from 'juice';
 import MenuBase from '@/toolbars/MenuBase';
 import { copyToClip } from '@/utils/copy';
+import { getLucideIconHtml } from '@/utils/lucideIcons';
 /**
  * 复制按钮，用来复制预览区的html内容
  * 该操作会将预览区的css样式以行内样式的形式插入到html内容里，从而保证粘贴时样式一致
@@ -96,7 +97,7 @@ export default class Copy extends MenuBase {
     if (!this.lastIconOuterHtml) {
       this.lastIconOuterHtml = this.dom.lastElementChild.outerHTML;
     }
-    this.dom.lastElementChild.outerHTML = '<i class="ch-icon ch-icon-ok"></i>';
+    this.dom.lastElementChild.outerHTML = getLucideIconHtml('ok');
     setTimeout(() => {
       if (this.lastIconOuterHtml) {
         this.dom.lastElementChild.outerHTML = this.lastIconOuterHtml;

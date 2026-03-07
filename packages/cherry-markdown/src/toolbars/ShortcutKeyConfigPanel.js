@@ -12,6 +12,7 @@ import {
   clearStorageKeyMap,
 } from '@/utils/shortcutKey';
 import { createElement } from '@/utils/dom';
+import { getLucideIconHtml } from '@/utils/lucideIcons';
 
 export default class ShortcutKeyConfigPanel {
   /**
@@ -457,14 +458,14 @@ export default class ShortcutKeyConfigPanel {
           <div class="shortcut-key-config-panel-name">${this.getAliasLocale(aliasName)}</div>
           <div class="shortcut-key-right">
             <div class="edit-btn" title="${this.$cherry.locale.edit}">
-              <i class="ch-icon ch-icon-pen-fill"></i>
+              ${getLucideIconHtml('pen-fill')}
             </div>
             <div class="edit-actions">
               <div class="action-btn save" title="${this.$cherry.locale.save}">
-                <i class="ch-icon ch-icon-ok"></i>
+                ${getLucideIconHtml('ok')}
               </div>
               <div class="action-btn cancel" title="${this.$cherry.locale.cancel}">
-                <i class="ch-icon ch-icon-close"></i>
+                ${getLucideIconHtml('close')}
               </div>
             </div>
             <div class="${this.shortcutConfigPanelKbdClassName}">
@@ -482,14 +483,14 @@ export default class ShortcutKeyConfigPanel {
     const ulStr = `
       <div class="cherry-shortcut-key-config-panel-inner">
         <div class="shortcut-panel-settings">
-          <btn class="shortcut-settings-btn j-shortcut-settings-disable-btn"><i class="ch-icon ${
-            !isEnableShortcutKey(this.$cherry.nameSpace) ? 'ch-icon-command' : 'ch-icon-cherry-table-delete'
-          }"></i> ${
+          <btn class="shortcut-settings-btn j-shortcut-settings-disable-btn">${
+            !isEnableShortcutKey(this.$cherry.nameSpace) ? getLucideIconHtml('command') : getLucideIconHtml('cherry-table-delete')
+          } ${
             !isEnableShortcutKey(this.$cherry.nameSpace)
               ? this.$cherry.locale.enableShortcut
               : this.$cherry.locale.disableShortcut
           }</btn>
-          <btn class="shortcut-settings-btn j-shortcut-settings-recover-btn"><i class="ch-icon ch-icon-undo"></i> ${
+          <btn class="shortcut-settings-btn j-shortcut-settings-recover-btn">${getLucideIconHtml('undo')} ${
             this.$cherry.locale.recoverShortcut
           }</btn>
         </div>

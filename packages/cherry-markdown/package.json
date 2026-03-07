@@ -24,10 +24,9 @@
     "./dist/*.css"
   ],
   "scripts": {
-    "iconfont": "gulp",
     "dev:vite": "vite",
     "build": "run-s clean build:all build:cjs",
-    "build:all": "run-p iconfont build:styles build:types build:addons build:full build:core build:engine build:stream",
+    "build:all": "run-p build:styles build:types build:addons build:full build:core build:engine build:stream",
     "build:cjs": "run-p build:core-cjs build:engine-cjs build:stream-cjs",
     "build:full": "cross-env NODE_ENV=production rollup --config build/build.js",
     "build:core": "cross-env CORE_BUILD=true NODE_ENV=production rollup --config build/rollup.core.config.js",
@@ -87,10 +86,6 @@
     "dom-parser": "^0.1.6",
     "es-check": "^7.1.1",
     "glob": "^8.0.3",
-    "gulp": "^5.0.1",
-    "gulp-consolidate": "^0.2.0",
-    "gulp-iconfont": "^11.0.0",
-    "gulp-rename": "^2.0.0",
     "html2canvas": "^1.1.3",
     "juice": "^8.0.0",
     "lodash": "^4.17.20",
@@ -118,6 +113,7 @@
     "dompurify": "^3.2.6",
     "htmlparser2": "^10.0.0",
     "jsdom": "~19.0.0",
+    "lucide": "^0.577.0",
     "ws": "^8.18.0"
   },
   "resolutions": {

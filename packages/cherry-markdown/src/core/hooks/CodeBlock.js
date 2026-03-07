@@ -18,6 +18,7 @@ import Prism from 'prismjs';
 import { escapeHTMLSpecialChar } from '@/utils/sanitize';
 import { getTableRule, getCodeBlockRule } from '@/utils/regexp';
 import { prependLineFeedForParagraph } from '@/utils/lineFeed';
+import { getLucideIconHtml } from '@/utils/lucideIcons';
 
 Prism.manual = true;
 
@@ -295,7 +296,7 @@ export default class CodeBlock extends ParagraphBase {
     if (needUnExpand) {
       cacheCode += `<div class="cherry-mask-code-block">
         <div class="expand-btn ">
-          <i class="ch-icon ch-icon-expand"></i>
+          ${getLucideIconHtml('expand')}
         </div>
       </div>`;
     }

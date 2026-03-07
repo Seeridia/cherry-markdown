@@ -18,6 +18,7 @@ import Logger from '@/Logger';
 import { escapeHTMLSpecialCharOnce as $e } from '@/utils/sanitize';
 import { createElement } from '@/utils/dom';
 import NestedError from '@/utils/error';
+import { createLucideIcon, hasLucideIcon } from '@/utils/lucideIcons';
 
 /**
  * @typedef {Object} SubMenuConfigItem
@@ -161,16 +162,15 @@ export default class MenuBase {
   }
 
   /**
-   * 创建一个IconFont类型的图标
+   * 创建一个Lucide图标
    * @param {string} iconName
    * @param {object} options
+   * @param {number} [options.size]
+   * @param {number} [options.strokeWidth]
+   * @param {string} [options.className]
    */
-  createIconFontIcon(iconName, options = {}) {
-    const icon = createElement('i', `ch-icon ch-icon-${iconName}`);
-    if (typeof options?.className === 'string') {
-      icon.classList.add(options.className);
-    }
-    return icon;
+  createLucideIconElement(iconName, options = {}) {
+    return createLucideIcon(iconName, options);
   }
 
   /**
@@ -234,8 +234,9 @@ export default class MenuBase {
         // 默认 this.name 和 iconName 是一致的，除非手动调用 setName 方法来更改
         // 这里的逻辑就是 MenuBase 子类没有手动调用setName时则以传入的（默认跟hook name一致，可以在配置文件中更改）为准
         // 否则以子类set的为准
-        icon = this.createIconFontIcon(this.iconName !== this.name ? this.iconName : customIcon);
-        this.iconType = 'iconfont';
+        const iconKey = this.iconName !== this.name ? this.iconName : customIcon;
+        icon = this.createLucideIconElement(iconKey);
+        this.iconType = 'lucide';
       } else if (customIcon instanceof HTMLElement) {
         icon = customIcon;
         this.iconType = 'element';
@@ -247,11 +248,13 @@ export default class MenuBase {
         } else if (type === 'image') {
           icon = this.createImageIcon(customIcon);
           this.iconType = 'image';
-        } else if (type === 'iconfont') {
-          icon = this.createIconFontIcon(customIcon.content);
-          this.iconType = 'iconfont';
+        } else if (type === 'lucide') {
+          icon = this.createLucideIconElement(customIcon.content, {
+            className: customIcon.iconClassName,
+          });
+          this.iconType = 'lucide';
         } else {
-          throw new Error(`except customIcon.type is "svg", "image", "iconfont", but get "${type}"`);
+          throw new Error(`except customIcon.type is "svg", "image", "lucide", but get "${type}"`);
         }
       }
       if (icon !== null) {
@@ -285,8 +288,10 @@ export default class MenuBase {
       title: this.locale[name] || $e(name),
     });
     if (iconName) {
-      const iconElement = createElement('i', `ch-icon ch-icon-${iconName}`);
-      span.appendChild(iconElement);
+      const iconElement = this.createLucideIconElement(iconName);
+      if (iconElement) {
+        span.appendChild(iconElement);
+      }
     } else if (icon) {
       const iconElement = createElement('img', 'ch-icon', {
         src: icon,
@@ -478,14 +483,19 @@ export default class MenuBase {
     if (this.noIcon) {
       return false;
     }
-    // 传入 options 是个字符串，说明是想要更新 iconfont，那就要求当前的icon类型也为iconfont
+    // 传入 options 是个字符串，说明是想要更新 lucide 图标
     if (typeof options === 'string') {
-      if (this.iconType === 'iconfont') {
-        this.dom.querySelector('i')?.classList.replace(`ch-icon-${this.iconName}`, `ch-icon-${options}`);
-        this.iconName = options;
-        this.$currentMenuOptions.icon = options;
-        this.iconType = 'iconfont';
-        return true;
+      if (this.iconType === 'lucide') {
+        const newIcon = this.createLucideIconElement(options, {
+          className: `cherry-menu-${this.name}`,
+        });
+        if (newIcon) {
+          this.dom.replaceChildren(newIcon);
+          this.iconName = options;
+          this.$currentMenuOptions.icon = options;
+          this.iconType = 'lucide';
+          return true;
+        }
       }
       return false;
     }
@@ -497,24 +507,22 @@ export default class MenuBase {
     }
     let { iconName } = this;
     switch (options.type) {
-      case 'iconfont':
-        if (this.iconType === 'iconfont') {
-          iconName = options.content;
-          this.dom.querySelector('i')?.classList.replace(`ch-icon-${this.iconName}`, `ch-icon-${iconName}`);
-          this.iconName = iconName;
-        } else {
-          const icon = this.createIconFontIcon(options.content, {
+      case 'lucide':
+        {
+          const icon = this.createLucideIconElement(options.content, {
             className: `cherry-menu-${this.name}`,
           });
-          if (options.iconClassName) {
-            icon.classList.add(options.iconClassName);
+          if (icon) {
+            if (options.iconClassName) {
+              icon.classList.add(options.iconClassName);
+            }
+            if (options.iconStyle) {
+              icon.setAttribute('style', options.iconStyle);
+            }
+            this.dom.replaceChildren(icon);
           }
-          if (options.iconStyle) {
-            icon.setAttribute('style', options.iconStyle);
-          }
-          this.dom.replaceChildren(icon);
+          this.iconType = 'lucide';
         }
-        this.iconType = 'iconfont';
         break;
       case 'svg':
         this.dom.replaceChildren(this.createSvgIcon(options));

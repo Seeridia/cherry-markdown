@@ -17,6 +17,7 @@ import { getCodeBlockRule } from '@/utils/regexp';
 import codemirror from 'codemirror';
 import { getCodePreviewLangSelectElement } from '@/utils/code-preview-language-setting';
 import { copyToClip } from '@/utils/copy';
+import { getLucideIconHtml } from '@/utils/lucideIcons';
 import 'codemirror/keymap/sublime';
 
 export default class CodeBlockHandler {
@@ -182,7 +183,7 @@ export default class CodeBlockHandler {
       // 添加编辑btn
       const editDom = document.createElement('div');
       editDom.className = 'cherry-edit-code-block';
-      editDom.innerHTML = '<i class="ch-icon ch-icon-edit"></i>';
+      editDom.innerHTML = getLucideIconHtml('edit');
       editDom.style.right = `${oneLineBtnsRight}em`;
       this.container.appendChild(editDom);
       editDom.addEventListener('click', (e) => {
@@ -200,7 +201,7 @@ export default class CodeBlockHandler {
       // 添加复制btn
       const copyDom = document.createElement('div');
       copyDom.className = 'cherry-copy-code-block';
-      copyDom.innerHTML = '<i class="ch-icon ch-icon-copy"></i>';
+      copyDom.innerHTML = getLucideIconHtml('copy');
       copyDom.style.right = `${oneLineBtnsRight}em`;
       this.container.appendChild(copyDom);
       copyDom.addEventListener('click', (e) => {
@@ -238,7 +239,7 @@ export default class CodeBlockHandler {
       // 添加缩起btn
       const unExpandDom = document.createElement('div');
       unExpandDom.className = 'cherry-unExpand-code-block';
-      unExpandDom.innerHTML = '<i class="ch-icon ch-icon-unExpand"></i>';
+      unExpandDom.innerHTML = getLucideIconHtml('unExpand');
       unExpandDom.style.right = `${oneLineBtnsRight}em`;
       if (!isExpand || !maskDom) {
         unExpandDom.classList.add('hidden');

@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 import ParagraphBase from '@/core/ParagraphBase';
+import { getLucideIconHtml } from '@/utils/lucideIcons';
 
 const INDENT_SPACE_NUM = 4; // commonmark default use 1~4 spaces for indent
 const TAB_SPACE_NUM = 4; // 1 tab === 4 space
@@ -32,8 +33,8 @@ function attrsToAttributeString(object) {
 export function makeChecklist(text) {
   return text.replace(/^((?:|[\t ]+)[*+-]\s+)\[(\s|x)\]/gm, (whole, pre, test) => {
     const checkHtml = /\s/.test(test)
-      ? '<span class="ch-icon ch-icon-square"></span>'
-      : '<span class="ch-icon ch-icon-check"></span>';
+      ? getLucideIconHtml('square')
+      : getLucideIconHtml('check');
     return `${pre}${checkHtml}`;
   });
 }
@@ -184,7 +185,7 @@ export default class List extends ParagraphBase {
       node.lines += child.lines;
       lines += child.lines;
       // checklist 样式适配
-      const checklistRegex = /<span class="ch-icon ch-icon-(square|check)"><\/span>/;
+      const checklistRegex = /<svg[^>]*class="ch-icon ch-icon-(square|check)"[^>]*>.*?<\/svg>/;
       if (checklistRegex.test(str)) {
         itemAttr.class += ' check-list-item';
       }

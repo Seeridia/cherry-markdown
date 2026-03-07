@@ -15,6 +15,7 @@
  */
 import ParagraphBase from '@/core/ParagraphBase';
 import { prependLineFeedForParagraph, calculateLinesOfParagraph } from '@/utils/lineFeed';
+import { getLucideIconHtml } from '@/utils/lucideIcons';
 
 function defaultLinkProcessor(link) {
   return link;
@@ -112,7 +113,7 @@ export default class Toc extends ParagraphBase {
     }
     const tocLink = this.linkProcessor(`#${node.id}`.replace(/safe_/g, '')); // transform header id to avoid being sanitized
     if (node.isInBlockquote) {
-      isInBlockquotePrefix = `<i class="cherry-toc-in-blockquote ch-icon ch-icon-blockquote"></i>`;
+      isInBlockquotePrefix = getLucideIconHtml('blockquote', { className: 'cherry-toc-in-blockquote' });
     }
     const endTag = closeTag ? '</li>' : '';
     return `<li class="${this.tocNodeClass}${this.showAutoNumber ? ` toc-li-${node.level}` : ''}">

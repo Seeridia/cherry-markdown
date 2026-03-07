@@ -15,6 +15,7 @@
  */
 
 import imgSizeHandler from './imgSizeHandler';
+import { createLucideIcon } from './lucideIcons';
 
 /**
  * 用于在图片被点击时弹出调整图片边框|阴影|圆角的工具栏
@@ -50,14 +51,13 @@ const imgToolHandler = {
     ];
     const decoDiv = document.createElement('div');
     decoDiv.className = 'img-tool-group';
-    const getImgToolButtonClassName = (item) => `img-tool-button${item.active ? ' active' : ''}`;
+    const getImgToolButtonClassName = (item) => `img-tool-button ch-icon ${item.active ? ' active' : ''}`;
     this.container.appendChild(decoDiv);
     decoList.forEach((deco) => {
       deco.active = this.img.className.match(`cherry-img-deco-${deco.type}`);
       const div = document.createElement('div');
-      const icon = document.createElement('i');
-      div.appendChild(icon);
-      icon.className = `img-tool-icon ch-icon ch-icon-imgDeco${capitalizeFirstLetter(deco.type)}`;
+      const icon = createLucideIcon(`imgDeco${capitalizeFirstLetter(deco.type)}`);
+      if (icon) div.appendChild(icon);
       div.className = getImgToolButtonClassName(deco);
       div.title = deco.text;
       div.addEventListener('click', (e) => {
@@ -88,10 +88,9 @@ const imgToolHandler = {
     alignList.forEach((align, index) => {
       align.active = this.img.className.match(`cherry-img-align-${align.type}`);
       const div = document.createElement('div');
-      const icon = document.createElement('i');
+      const icon = createLucideIcon(`imgAlign${capitalizeLetter(align.type)}`);
       align.div = div;
-      div.appendChild(icon);
-      icon.className = `img-tool-icon ch-icon ch-icon-imgAlign${capitalizeLetter(align.type)}`;
+      if (icon) div.appendChild(icon);
       div.className = getImgToolButtonClassName(align);
       div.title = align.text;
       div.addEventListener('click', (e) => {

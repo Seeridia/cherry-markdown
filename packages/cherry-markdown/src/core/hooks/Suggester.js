@@ -26,6 +26,7 @@ import { Pass } from 'codemirror/src/util/misc';
 import { isLookbehindSupported } from '@/utils/regexp';
 import { replaceLookbehind } from '@/utils/lookbehind-replace';
 import { isBrowser } from '@/utils/env';
+import { getLucideIconHtml } from '@/utils/lucideIcons';
 
 /**
  * @typedef {import('codemirror')} CodeMirror
@@ -405,7 +406,7 @@ class SuggesterPanel {
         if (typeof suggest === 'object' && suggest !== null) {
           let renderContent = suggest.label;
           if (suggest?.icon) {
-            renderContent = `<i class="ch-icon ch-icon-${suggest.icon}"></i>${renderContent}`;
+            renderContent = `${getLucideIconHtml(suggest.icon)}${renderContent}`;
           }
           return this.renderPanelItem(renderContent, false);
         }

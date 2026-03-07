@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 import { createElement } from '../utils/dom';
+import { createLucideIcon, getLucideIconHtml } from '../utils/lucideIcons';
 /**
  * 悬浮目录
  */
@@ -76,8 +77,8 @@ export default class Toc {
     const tocHead = createElement('div', 'cherry-toc-head');
     const tocTitle = createElement('span', 'cherry-toc-title');
     tocTitle.append(this.$cherry.locale.toc);
-    const tocClose = createElement('i', 'ch-icon ch-icon-chevronsRight');
-    const tocOpen = createElement('i', 'ch-icon ch-icon-chevronsLeft');
+    const tocClose = createLucideIcon('chevronsRight');
+    const tocOpen = createLucideIcon('chevronsLeft');
     this.tocClose = tocClose;
     this.tocOpen = tocOpen;
     tocHead.appendChild(tocTitle);
@@ -222,7 +223,7 @@ export default class Toc {
           const $text = text.replace(/<sup class="cherry-footnote-number">.*?<\/sup>/g, '').replace(/<a .+?<\/a>/g, '');
           const title = $text.replace(/<[^>]+?>/g, '');
           const isInBlockquoteIcon = isInBlockquote
-            ? '<i class="cherry-toc-in-blockquote ch-icon ch-icon-blockquote"></i>'
+            ? getLucideIconHtml('blockquote', { className: 'cherry-toc-in-blockquote' })
             : '';
           const tmpA = `<a class="cherry-toc-one-a cherry-toc-one-a__${level > 5 ? 5 : level}"
             title="${title}"

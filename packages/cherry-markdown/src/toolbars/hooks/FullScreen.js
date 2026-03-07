@@ -15,6 +15,7 @@
  */
 import MenuBase from '@/toolbars/MenuBase';
 import { createElement } from '@/utils/dom';
+import { createLucideIcon } from '@/utils/lucideIcons';
 /**
  * 全屏按钮
  */
@@ -37,11 +38,11 @@ export default class FullScreen extends MenuBase {
     }
 
     if (cherryClass.contains('fullscreen')) {
-      const fullScreen = createElement('i', 'ch-icon ch-icon-fullscreen');
+      const fullScreen = createLucideIcon('fullscreen');
       cherryToolbarFullscreen && cherryToolbarFullscreen.appendChild(fullScreen);
       cherryClass.remove('fullscreen');
     } else {
-      const minScreen = createElement('i', 'ch-icon ch-icon-minscreen');
+      const minScreen = createLucideIcon('minscreen');
       cherryToolbarFullscreen && cherryToolbarFullscreen.appendChild(minScreen);
       cherryClass.add('fullscreen');
     }

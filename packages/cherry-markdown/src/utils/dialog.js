@@ -15,6 +15,7 @@
  */
 
 import { createElement } from './dom';
+import { createLucideIcon } from './lucideIcons';
 
 const clamp = (num, min, max) => {
   return Math.min(Math.max(num, min), max);
@@ -159,9 +160,12 @@ const dialog = {
       ].join(';'),
     });
     this.headTitle = createElement('span', 'cherry-dialog--title', { style: 'user-select:none;' });
-    this.headCloseButton = createElement('i', 'cherry-dialog--close ch-icon ch-icon-close', {
-      style: 'float: right;font-size: 12px;cursor: pointer;',
+    this.headCloseButton = createLucideIcon('close', {
+      className: 'cherry-dialog--close',
     });
+    if (this.headCloseButton) {
+      this.headCloseButton.style.cssText = 'float: right;font-size: 12px;cursor: pointer;';
+    }
     this.footSureButton = createElement('button', 'cherry-dialog--sure', {
       style: [
         'float: right',

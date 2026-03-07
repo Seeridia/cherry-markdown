@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 import { getTableRule, getCodeBlockRule } from '@/utils/regexp';
+import { createLucideIcon } from '@/utils/lucideIcons';
 
 /**
  * 用于在表格上出现编辑区，并提供拖拽行列的功能
@@ -1172,7 +1173,11 @@ export default class TableHandler {
       const button = document.createElement('button');
       button.setAttribute('type', 'button');
       button.setAttribute('data-type', type);
-      button.className = 'cherry-previewer-table-hover-handler__menu ch-icon ch-icon-menu';
+      const menuIcon = createLucideIcon('menu');
+      if (menuIcon) {
+        button.appendChild(menuIcon);
+      }
+      button.className = 'cherry-previewer-table-hover-handler__menu';
       button.title = '菜单';
 
       // 创建菜单气泡
@@ -1498,7 +1503,7 @@ export default class TableHandler {
     const baseConfig = [
       {
         id: 'delete',
-        icon: 'ch-icon-cherry-table-delete',
+        icon: 'cherry-table-delete',
         title: isRowControl ? this.$cherry.locale.deleteRow : this.$cherry.locale.deleteColumn,
         action: isRowControl ? 'deleteRow' : 'deleteColumn',
         highlight: isRowControl ? 'row' : 'column',
@@ -1506,21 +1511,21 @@ export default class TableHandler {
       },
       {
         id: 'align-left',
-        icon: 'ch-icon-alignLeft',
+        icon: 'alignLeft',
         title: '左对齐',
         action: 'alignLeft',
         showIn: ['column'],
       },
       {
         id: 'align-center',
-        icon: 'ch-icon-alignCenter',
+        icon: 'alignCenter',
         title: '居中',
         action: 'alignCenter',
         showIn: ['column'],
       },
       {
         id: 'align-right',
-        icon: 'ch-icon-alignRight',
+        icon: 'alignRight',
         title: '右对齐',
         action: 'alignRight',
         showIn: ['column'],
@@ -1560,9 +1565,10 @@ export default class TableHandler {
     option.setAttribute('data-action', config.action);
     option.title = config.title;
 
-    const iconSpan = document.createElement('span');
-    iconSpan.className = `ch-icon ${config.icon}`;
-    option.appendChild(iconSpan);
+    const icon = createLucideIcon(config.icon);
+    if (icon) {
+      option.appendChild(icon);
+    }
 
     option.addEventListener('click', () => {
       this.$executeMenuAction(config.action, type);
