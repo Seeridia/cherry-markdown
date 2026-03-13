@@ -4,153 +4,199 @@
  * Clean, professional, and accessible
  */
 
- .cherry.theme__github {
+.cherry.theme__github {
   /* ========== GitHub Color Palette ========== */
-  --primary-color: #0969da;           /* GitHub blue-500 */
-  --secondary-color: #ddf4ff;         /* GitHub blue-100 */
+  --primary-color: #0969da;
+  /* GitHub blue-500 */
+  --secondary-color: #ddf4ff;
+  /* GitHub blue-100 */
 
   /* ========== Base Colors ========== */
-  --base-font-color: #24292f;         /* GitHub gray-900 */
-  --base-sub-font-color: #57606a;     /* GitHub gray-500 */
-  --base-editor-bg: #ffffff;          /* Pure white */
+  --base-font-color: #24292f;
+  /* GitHub gray-900 */
+  --base-sub-font-color: #57606a;
+  /* GitHub gray-500 */
+  --base-editor-bg: #ffffff;
+  /* Pure white */
   --base-previewer-bg: #ffffff;
-  --base-border-color: #d0d7de;       /* GitHub gray-300 */
+  --base-border-color: #d0d7de;
+  /* GitHub gray-300 */
 
   /* ========== System Status Colors ========== */
-  --color-success: #1a7f37;           /* GitHub green-600 */
-  --color-warning: #9a6700;           /* GitHub yellow-700 */
-  --color-error: #cf222e;             /* GitHub red-500 */
-  --color-info: #0969da;              /* GitHub blue-500 */
-  --color-link-hover: #0550ae;        /* GitHub blue-700 */
+  --color-success: #1a7f37;
+  /* GitHub green-600 */
+  --color-warning: #9a6700;
+  /* GitHub yellow-700 */
+  --color-error: #cf222e;
+  /* GitHub red-500 */
+  --color-info: #0969da;
+  /* GitHub blue-500 */
+  --color-link-hover: #0550ae;
+  /* GitHub blue-700 */
 
   /* ========== Toolbar ========== */
-  --toolbar-bg: #f6f8fa;              /* GitHub canvas-subtle */
-  --toolbar-border: #d0d7de;          /* GitHub gray-300 */
+  --toolbar-bg: #f6f8fa;
+  /* GitHub canvas-subtle */
   --toolbar-padding: 8px 16px;
   --toolbar-font-size: 14px;
   --toolbar-radius: 0;
-  --toolbar-shadow: 0 1px 0#d0d7de;  /* GitHub border-shadow */
-  --toolbar-split-color: #d0d7de;     /* GitHub gray-300 */
-
-  --toolbar-min-height: 48px;
-  --sidebar-list-height: 120px;
+  --toolbar-shadow: 0 1px 0#d0d7de;
+  /* GitHub border-shadow */
+  --toolbar-split-color: #d0d7de;
+  /* GitHub gray-300 */
 
   /* Toolbar Buttons */
-  --toolbar-btn-color: #24292f;       /* GitHub gray-900 */
+  --toolbar-btn-color: #24292f;
+  /* GitHub gray-900 */
   --toolbar-btn-bg: transparent;
-  --toolbar-btn-hover-color: #0969da; /* GitHub blue-500 */
-  --toolbar-btn-hover-bg: #eaeef2;    /* GitHub gray-100 */
-  --toolbar-btn-disabled: #8c959f;    /* GitHub gray-400 */
-
-  /* ========== Dropdown Menu ========== */
-  --dropdown-bg: #ffffff;             /* Pure white */
-  --dropdown-border: #d0d7de;         /* GitHub gray-300 */
-  --dropdown-shadow: 0 8px 24px rgba(140, 149, 159, 0.2);
-
-  /* Dropdown Items */
-  --dropdown-item-hover-bg: #f6f8fa;  /* GitHub canvas-subtle */
-  --dropdown-item-color: #24292f;     /* GitHub gray-900 */
-  --dropdown-item-hover-color: #24292f;
-  --dropdown-item-active-bg: #ddf4ff; /* GitHub blue-100 */
-  --dropdown-item-active-color: #0969da;
+  --toolbar-btn-hover-color: #0969da;
+  /* GitHub blue-500 */
+  --toolbar-btn-hover-bg: #eaeef2;
+  /* GitHub gray-100 */
+  --toolbar-btn-disabled: #8c959f;
+  /* GitHub gray-400 */
 
   /* ========== Edit Bubble ========== */
-  --bubble-bg: #ffffff;                /* Pure white */
-  --bubble-border: #d0d7de;           /* GitHub gray-300 */
+  --bubble-bg: #ffffff;
+  /* Pure white */
+  --bubble-border: #d0d7de;
+  /* GitHub gray-300 */
   --bubble-shadow: 0 8px 24px rgba(140, 149, 159, 0.2);
-  --bubble-radius: 12px;               /* GitHub border-radius-large */
-  --bubble-padding: 4px 8px;
-  --bubble-btn-height: 32px;
-  --bubble-z-index: 100;
+  --bubble-radius: 12px;
 
   /* ========== Editor Syntax Highlighting ========== */
-  --editor-header-color: #0969da;     /* GitHub blue-500 */
-  --editor-string-color: #0550ae;      /* GitHub blue-700 */
-  --editor-comment-color: #57606a;    /* GitHub gray-500 */
-  --editor-quote-color: #57606a;      /* GitHub gray-500 */
-  --editor-link-color: #0969da;       /* GitHub blue-500 */
-  --editor-url-bg-color: #ddf4ff;     /* GitHub blue-100 */
-  --editor-v2-color: #24292f;         /* GitHub gray-900 */
-  --editor-v3-color: #ddf4ff;         /* GitHub blue-100 */
-  --editor-keyword-color: #cf222e;    /* GitHub red-500 */
-  --editor-cursor-color: #0969da;     /* GitHub blue-500 */
-  --editor-selection-bg: #ddf4ff;     /* GitHub blue-100 */
-  --editor-line-number-color: #8c959f; /* GitHub gray-400 */
-  --editor-active-line-bg: #f6f8fa;   /* GitHub canvas-subtle */
+  --editor-header-color: #0969da;
+  /* GitHub blue-500 */
+  --editor-string-color: #0550ae;
+  /* GitHub blue-700 */
+  --editor-comment-color: #57606a;
+  /* GitHub gray-500 */
+  --editor-quote-color: #57606a;
+  /* GitHub gray-500 */
+  --editor-link-color: #0969da;
+  /* GitHub blue-500 */
+  --editor-url-bg-color: #ddf4ff;
+  /* GitHub blue-100 */
+  --editor-v2-color: #24292f;
+  /* GitHub gray-900 */
+  --editor-v3-color: #ddf4ff;
+  /* GitHub blue-100 */
+  --editor-keyword-color: #cf222e;
+  /* GitHub red-500 */
+  --editor-cursor-color: #0969da;
+  /* GitHub blue-500 */
+  --editor-selection-bg: #ddf4ff;
+  /* GitHub blue-100 */
+  --editor-line-number-color: #8c959f;
+  /* GitHub gray-400 */
+  --editor-active-line-bg: #f6f8fa;
+  /* GitHub canvas-subtle */
 
   /* ========== Previewer ========== */
-  --previewer-mobile-bg: #ffffff;      /* Pure white */
+  --previewer-mobile-bg: #ffffff;
+  /* Pure white */
 
   /* ========== Markdown Typography ========== */
   /* Headings */
-  --md-heading-color: #24292f;        /* GitHub gray-900 */
+  --md-heading-color: #24292f;
+  /* GitHub gray-900 */
 
   /* Paragraph */
-  --md-paragraph-color: #24292f;      /* GitHub gray-900 */
+  --md-paragraph-color: #24292f;
+  /* GitHub gray-900 */
   --md-paragraph-line-height: 1.6;
-  --md-paragraph-highlight-line-bg: #ddf4ff; /* GitHub blue-100 */
+  --md-paragraph-highlight-line-bg: #ddf4ff;
+  /* GitHub blue-100 */
 
   /* Links */
-  --md-link-color: #0969da;           /* GitHub blue-500 */
-  --md-link-hover-color: #0550ae;     /* GitHub blue-700 */
+  --md-link-color: #0969da;
+  /* GitHub blue-500 */
+  --md-link-hover-color: #0550ae;
+  /* GitHub blue-700 */
 
   /* Inline Code */
-  --md-inline-code-color: #24292f;    /* GitHub gray-900 */
-  --md-inline-code-bg: #f6f8fa;      /* GitHub canvas-subtle */
+  --md-inline-code-color: #24292f;
+  /* GitHub gray-900 */
+  --md-inline-code-bg: #f6f8fa;
+  /* GitHub canvas-subtle */
 
   /* Blockquote */
-  --md-blockquote-bg: #f6f8fa;       /* GitHub canvas-subtle */
-  --md-blockquote-border: #d0d7de;   /* GitHub gray-300 */
-  --md-blockquote-color: #57606a;    /* GitHub gray-500 */
+  --md-blockquote-bg: #f6f8fa;
+  /* GitHub canvas-subtle */
+  --md-blockquote-border: #d0d7de;
+  /* GitHub gray-300 */
+  --md-blockquote-color: #57606a;
+  /* GitHub gray-500 */
 
   /* Table */
-  --md-table-border: #d0d7de;         /* GitHub gray-300 */
-  --md-table-operator-color: #0969da; /* GitHub blue-500 */
-  --md-table-drag-border-bg: #0969da; /* GitHub blue-500 */
-  --md-table-sort-active-bg: #ddf4ff; /* GitHub blue-100 */
+  --md-table-border: #d0d7de;
+  /* GitHub gray-300 */
+  --md-table-operator-color: #0969da;
+  /* GitHub blue-500 */
+  --md-table-drag-border-bg: #0969da;
+  /* GitHub blue-500 */
+  --md-table-sort-active-bg: #ddf4ff;
+  /* GitHub blue-100 */
 
   /* Horizontal Rule */
-  --md-hr-border: #d0d7de;           /* GitHub gray-300 */
+  --md-hr-border: #d0d7de;
+  /* GitHub gray-300 */
 
   /* Table of Contents (TOC) */
-  --md-toc-bg: #ffffff;               /* Pure white */
-  --md-toc-border-color: #d0d7de;     /* GitHub gray-300 */
-  --md-toc-radius: 6px;               /* GitHub border-radius-medium */
+  --md-toc-bg: #ffffff;
+  /* Pure white */
+  --md-toc-border-color: #d0d7de;
+  /* GitHub gray-300 */
+  --md-toc-radius: 6px;
+  /* GitHub border-radius-medium */
   --md-toc-padding: 16px;
-  --md-toc-title-color: #24292f;      /* GitHub gray-900 */
-  --md-toc-link-hover-bg: #f6f8fa;    /* GitHub canvas-subtle */
-  --md-toc-link-active-bg: #eaeef2;   /* GitHub gray-100 */
+  --md-toc-title-color: #24292f;
+  /* GitHub gray-900 */
+  --md-toc-link-hover-bg: #f6f8fa;
+  /* GitHub canvas-subtle */
+  --md-toc-link-active-bg: #eaeef2;
+  /* GitHub gray-100 */
   --md-toc-link-radius: 6px;
-  --md-toc-link-color: #24292f;       /* GitHub gray-900 */
-  --md-toc-link-hover-color: #0969da; /* GitHub blue-500 */
+  --md-toc-link-color: #24292f;
+  /* GitHub gray-900 */
+  --md-toc-link-hover-color: #0969da;
+  /* GitHub blue-500 */
   --md-toc-indicator-width: 2px;
-  --md-toc-indicator-color: #d0d7de;  /* GitHub gray-300 */
-  --md-toc-indicator-hover-color: #0969da; /* GitHub blue-500 */
+  --md-toc-indicator-color: #d0d7de;
+  /* GitHub gray-300 */
+  --md-toc-indicator-hover-color: #0969da;
+  /* GitHub blue-500 */
   --md-toc-indicator-gap: 12px;
 
   /* ========== Accordion Component ========== */
   /* Base Styles */
-  --accordion-bg: #ffffff;            /* Pure white */
-  --accordion-border: #d0d7de;        /* GitHub gray-300 */
-  --accordion-radius: 6px;            /* GitHub border-radius-medium */
+  --accordion-bg: #ffffff;
+  /* Pure white */
+  --accordion-border: #d0d7de;
+  /* GitHub gray-300 */
+  --accordion-radius: 6px;
+  /* GitHub border-radius-medium */
   --accordion-shadow: 0 1px 3px rgba(140, 149, 159, 0.15);
 
   /* Summary Styles */
-  --accordion-summary-bg: #f6f8fa;    /* GitHub canvas-subtle */
-  --accordion-summary-color: #24292f; /* GitHub gray-900 */
-  --accordion-summary-hover-bg: #eaeef2; /* GitHub gray-100 */
+  --accordion-summary-bg: #f6f8fa;
+  /* GitHub canvas-subtle */
+  --accordion-summary-color: #24292f;
+  /* GitHub gray-900 */
+  --accordion-summary-hover-bg: #eaeef2;
+  /* GitHub gray-100 */
 
   /* Body Styles */
-  --accordion-body-bg: #ffffff;       /* Pure white */
-  --accordion-body-color: #24292f;    /* GitHub gray-900 */
-  --accordion-body-border: #d0d7de;   /* GitHub gray-300 */
+  --accordion-body-bg: #ffffff;
+  /* Pure white */
+  --accordion-body-color: #24292f;
+  /* GitHub gray-900 */
+  --accordion-body-border: #d0d7de;
+  /* GitHub gray-300 */
 
   /* ========== Misc Components ========== */
-  --drag-border-color: #d0d7de;       /* GitHub gray-300 */
-}
-
-/** Preview Area Styles - GitHub Typography */
-.cherry-markdown.theme__github {
+  --drag-border-color: #d0d7de;
+  /* GitHub gray-300 */
 
   /* Headings */
   h1 {
@@ -310,18 +356,21 @@
     font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace;
     background-color: rgba(175, 184, 193, 0.2);
     border-radius: 6px;
+    border: none;
   }
 
   /* Code Block */
   pre code {
-    padding: 16px;
     overflow: auto;
     font-size: 85%;
     line-height: 1.45;
     font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace;
-    background-color: #f6f8fa;
+  }
+
+  pre:has(code) {
     border-radius: 6px;
     display: block;
+    padding: 16px;
   }
 
   /* Table */
@@ -406,54 +455,7 @@
     border-radius: 6px;
   }
 
-  /* Table of Contents */
-  .toc {
-    background-color: #f6f8fa;
-    border: 1px solid #d0d7de;
-    border-radius: 6px;
-    padding: 16px;
-    margin-bottom: 16px;
-
-    .toc-title {
-      font-weight: 600;
-      font-size: 1.25em;
-      margin-bottom: 8px;
-    }
-
-    .toc-li {
-      padding: 4px 0;
-
-      .level-1 {
-        padding-left: 0;
-      }
-
-      .level-2 {
-        padding-left: 16px;
-      }
-
-      .level-3 {
-        padding-left: 32px;
-      }
-    }
-  }
-}
-
-/* Ordered List */
-ol {
-  padding-left: 2em;
-  margin-bottom: 16px;
-
-  li {
-    margin-top: 0.25em;
-  }
-}
-
-/* Unordered List */
-ul {
-  padding-left: 2em;
-  margin-bottom: 16px;
-
-  li {
-    margin-top: 0.25em;
+  .cherry-previewer {
+    border-left: 1px solid var(--drag-border-color);
   }
 }
