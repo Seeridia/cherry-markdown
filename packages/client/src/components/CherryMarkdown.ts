@@ -363,6 +363,8 @@ const cherryConfig: CherryOptions<CustomConfig> = {
     // 主题列表，用于切换主题
     themeList: [
       { className: 'default', label: '默认' }, // 曾用名：light 明亮
+      { className: 'github', label: 'Github' },
+      { className: 'notion', label: 'Notion' },
       { className: 'dark', label: '暗黑' },
       { className: 'gray', label: '沉稳' },
       { className: 'abyss', label: '深海' },
